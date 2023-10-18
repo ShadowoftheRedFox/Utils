@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// TODO for each comparaison, need a setFunction for that too
-
 Chain* createChain(ChaineElement a, void (*setFunction)(ChaineElement*, ChaineElement*)) {
     Chain* c = malloc(sizeof(Chain));
     if (c == NULL) {

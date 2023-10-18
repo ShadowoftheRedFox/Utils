@@ -3,6 +3,8 @@
 
 // replace it with your wanted type
 typedef int ChaineElement;
+// TODO error if chain element is not defined by user
+// TODO check if function in args are defined
 
 typedef enum Bool {
     false, true
