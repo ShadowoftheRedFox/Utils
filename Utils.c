@@ -100,9 +100,9 @@ int scanf_s(const void* value, char* format, char* message, Bool(*conditions(con
     do {
         if (message != NULL) {
             printf("%s", message);
-            correct = scanf(format, value);
-            empty_stdin();
         }
+        correct = scanf(format, value);
+        empty_stdin();
     } while (correct != 1 | !conditions(value));
     return correct;
 }
