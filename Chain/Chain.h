@@ -2,8 +2,7 @@
 #define HEADER_CHAIN_HANDOUT
 
 // replace it with your wanted type
-typedef int ChaineElement;
-// TODO error if chain element is not defined by user
+typedef int ChainElement;
 // TODO check if function in args are defined
 
 typedef enum Bool {
@@ -11,7 +10,7 @@ typedef enum Bool {
 } Bool;
 
 typedef struct Chain {
-    ChaineElement v;
+    ChainElement v;
     struct Chain* next;
 } Chain;
 
@@ -22,7 +21,7 @@ typedef struct Chain {
  * @param setFunction the function that set the source inside the dest
  * @return Chain*
  */
-Chain* createChain(ChaineElement a, void (*setFunction)(ChaineElement* dest, ChaineElement* source));
+Chain* createChain(ChainElement a, void (*setFunction)(ChainElement* dest, ChainElement* source));
 /**
  *@brief insert at the start of the chain
  *
@@ -31,7 +30,7 @@ Chain* createChain(ChaineElement a, void (*setFunction)(ChaineElement* dest, Cha
  * @param setFunction the function that set the source inside the dest
  * @return Chain*
  */
-Chain* insertStart(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElement* dest, ChaineElement* source));
+Chain* insertStart(Chain* chain, ChainElement a, void (*setFunction)(ChainElement* dest, ChainElement* source));
 /**
  *@brief insert at the end of the chain
  *
@@ -40,7 +39,7 @@ Chain* insertStart(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElem
  * @param setFunction the function that set the source inside the dest
  * @return Chain*
  */
-Chain* insertEnd(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElement* dest, ChaineElement* source));
+Chain* insertEnd(Chain* chain, ChainElement a, void (*setFunction)(ChainElement* dest, ChainElement* source));
 /**
  *@brief insert at the given position of the chain
  *
@@ -50,7 +49,7 @@ Chain* insertEnd(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElemen
  * @param setFunction the function that set the source inside the dest
  * @return Chain*
  */
-Chain* insertPos(Chain* chain, ChaineElement a, unsigned int pos, void (*setFunction)(ChaineElement* dest, ChaineElement* source));
+Chain* insertPos(Chain* chain, ChainElement a, unsigned int pos, void (*setFunction)(ChainElement* dest, ChainElement* source));
 /**
  *@brief insert in a sorted way, defined by the strictSupCmpFct
  *
@@ -60,7 +59,7 @@ Chain* insertPos(Chain* chain, ChaineElement a, unsigned int pos, void (*setFunc
  * @param strictSupCmpFct the function that return true if sup > inf
  * @return Chain*
  */
-Chain* insertSorted(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElement* dest, ChaineElement* source), Bool(*strictSupCmpFct)(ChaineElement sup, ChaineElement inf));
+Chain* insertSorted(Chain* chain, ChainElement a, void (*setFunction)(ChainElement* dest, ChainElement* source), Bool(*strictSupCmpFct)(ChainElement sup, ChainElement inf));
 /**
  *@brief remove all element matching in the chain
  *
@@ -69,7 +68,7 @@ Chain* insertSorted(Chain* chain, ChaineElement a, void (*setFunction)(ChaineEle
  * @param equalCmpFct function that compare is the two element are equal
  * @return Chain*
  */
-Chain* removeAll(Chain* chain, ChaineElement t, Bool(*equalCmpFct)(ChaineElement, ChaineElement));
+Chain* removeAll(Chain* chain, ChainElement t, Bool(*equalCmpFct)(ChainElement, ChainElement));
 /**
  *@brief remove the first element that match
  *
@@ -78,7 +77,7 @@ Chain* removeAll(Chain* chain, ChaineElement t, Bool(*equalCmpFct)(ChaineElement
  * @param equalCmpFct function that compare is the two element are equal
  * @return Chain*
  */
-Chain* removeOne(Chain* chain, ChaineElement a, Bool(*equalCmpFct)(ChaineElement, ChaineElement));
+Chain* removeOne(Chain* chain, ChainElement a, Bool(*equalCmpFct)(ChainElement, ChainElement));
 /**
  *@brief invert the order of the chain
  *
@@ -92,7 +91,7 @@ Chain* invertChain(Chain* chain);
  * @param chain target
  * @param typePrint function that prints the current element
  */
-void showChain(Chain* chain, void (*typePrint)(ChaineElement));
+void showChain(Chain* chain, void (*typePrint)(ChainElement));
 /**
  *@brief free the whole chain from memory
  *

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-Chain* createChain(ChaineElement a, void (*setFunction)(ChaineElement*, ChaineElement*)) {
+Chain* createChain(ChainElement a, void (*setFunction)(ChainElement*, ChainElement*)) {
     Chain* c = malloc(sizeof(Chain));
     if (c == NULL) {
         exit(-1);
@@ -14,7 +14,7 @@ Chain* createChain(ChaineElement a, void (*setFunction)(ChaineElement*, ChaineEl
     return c;
 }
 
-Chain* insertStart(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElement*, ChaineElement*)) {
+Chain* insertStart(Chain* chain, ChainElement a, void (*setFunction)(ChainElement*, ChainElement*)) {
     if (chain == NULL) {
         return createChain(a, setFunction);
     }
@@ -23,7 +23,7 @@ Chain* insertStart(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElem
     return new;
 }
 
-Chain* insertEnd(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElement*, ChaineElement*)) {
+Chain* insertEnd(Chain* chain, ChainElement a, void (*setFunction)(ChainElement*, ChainElement*)) {
     if (chain == NULL) {
         return createChain(a, setFunction);
     }
@@ -36,7 +36,7 @@ Chain* insertEnd(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElemen
     return chain;
 }
 
-void showChain(Chain* chain, void (*typePrint)(ChaineElement)) {
+void showChain(Chain* chain, void (*typePrint)(ChainElement)) {
     if (chain == NULL) {
         printf("Chain is corrupted.\n");
         return;
@@ -48,7 +48,7 @@ void showChain(Chain* chain, void (*typePrint)(ChaineElement)) {
     typePrint(chain->v);
 }
 
-Chain* insertPos(Chain* chain, ChaineElement a, unsigned int pos, void (*setFunction)(ChaineElement*, ChaineElement*)) {
+Chain* insertPos(Chain* chain, ChainElement a, unsigned int pos, void (*setFunction)(ChainElement*, ChainElement*)) {
     if (chain == NULL) {
         chain = insertStart(chain, a, setFunction);
     } else {
@@ -69,7 +69,7 @@ Chain* insertPos(Chain* chain, ChaineElement a, unsigned int pos, void (*setFunc
     return chain;
 }
 
-Chain* insertSorted(Chain* chain, ChaineElement a, void (*setFunction)(ChaineElement*, ChaineElement*), Bool(*strictSupCmpFct)(ChaineElement inf, ChaineElement sup)) {
+Chain* insertSorted(Chain* chain, ChainElement a, void (*setFunction)(ChainElement*, ChainElement*), Bool(*strictSupCmpFct)(ChainElement inf, ChainElement sup)) {
     if (chain == NULL) {
         return createChain(a, setFunction);
     }
@@ -86,7 +86,7 @@ Chain* insertSorted(Chain* chain, ChaineElement a, void (*setFunction)(ChaineEle
     return chain;
 }
 
-Chain* removeAll(Chain* chain, ChaineElement t, Bool(*equalCmpFct)(ChaineElement, ChaineElement)) // c pour chaine, t pour "target" (cible)
+Chain* removeAll(Chain* chain, ChainElement t, Bool(*equalCmpFct)(ChainElement, ChainElement)) // c pour chaine, t pour "target" (cible)
 {
     if (chain == NULL) {
         return NULL;
@@ -136,7 +136,7 @@ Chain* removeAll(Chain* chain, ChaineElement t, Bool(*equalCmpFct)(ChaineElement
     return chain;
 }
 
-Chain* removeOne(Chain* chain, ChaineElement a, Bool(*equalCmpFct)(ChaineElement, ChaineElement)) {
+Chain* removeOne(Chain* chain, ChainElement a, Bool(*equalCmpFct)(ChainElement, ChainElement)) {
     if (chain == NULL) {
         return NULL;
     }
